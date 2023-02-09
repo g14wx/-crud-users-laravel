@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use Faker\Generator;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,11 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $faker = app(Generator::class);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => $faker->email(),
+            'age' => 10,
+            'password' => '$2y$10$wrmXTPESwk6TUo6nQ4N2LOc8fRBXrRHBGcf54UkAkmK.AJa/NQpri' // password
+        ]);
     }
 }
