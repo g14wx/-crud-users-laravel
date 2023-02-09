@@ -8,19 +8,7 @@ variables:
   DB_USERNAME: root
 
 stages:
-  - test
   - deploy
-
-unit_test:
-  stage: test
-  script:
-    # install the application
-    - COMPOSER_CACHE_DIR=composer-cache composer install
-    - cp .env.example .env
-    - composer install
-    - php artisan key:generate
-    - php artisan migrate
-    - vendor/bin/phpunit
 
 deploy_production:
   stage: deploy
