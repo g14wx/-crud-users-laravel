@@ -44,7 +44,7 @@ class Users extends Component
      */
     public function render()
     {
-        $this->users = User::select('id', 'name', 'email', 'age', 'created_at')->get();
+        $this->users = User::select('id', 'name', 'email', 'age', 'created_at')->where('id','!=',auth()->user()->id)->get();
         return view('livewire.users');
     }
 
