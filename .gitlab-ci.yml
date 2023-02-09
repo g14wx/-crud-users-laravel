@@ -1,14 +1,22 @@
+services:
+  - mysql:5.7
+
+variables:
+  MYSQL_DATABASE: homestead
+  MYSQL_ROOT_PASSWORD: secret
+  DB_HOST: mysql
+  DB_USERNAME: root
+
 stages:
   - deploy
 
-deploy-railway:
+deploy_production:
   stage: deploy
-  image: ubuntu
-  only:
-    - pushes
-    - main
-    - CU-863g1bhgx_Add-gitlab-CI-CD
   script:
-    - apt-get update && apt-get install -y curl
-    - curl -fsSL https://railway.app/install.sh | sh
-    - railway up --service=$RAILWAY_SERVICE_NAME -d
+    - "git remote add github https://'$GITHUB_TOKEN'github.com/g14wx/-crud-users-laravel.git"
+    - "git push github"
+  only:
+    - main
+
+
+
