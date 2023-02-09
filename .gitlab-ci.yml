@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy-railway:
+  stage: deploy
+  image: ubuntu
+  only:
+    - pushes
+    - main
+    - CU-863g1bhgx_Add-gitlab-CI-CD
+  script:
+    - apt-get update && apt-get install -y curl
+    - curl -fsSL https://railway.app/install.sh | sh
+    - railway up --service=$RAILWAY_SERVICE_NAME -d
