@@ -21,7 +21,7 @@ This project was made with laravel and jet stream.
 
 you can visit the website to fully test this project on:
 
-https://laravel-production-f400.up.railway.app/
+https://crud-users-url.herokuapp.com/
 
 Everything its working on this project, like:
 
