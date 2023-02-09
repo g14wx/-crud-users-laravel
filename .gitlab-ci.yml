@@ -14,11 +14,9 @@ deploy_production:
   stage: deploy
   script:
     - "git remote add github https://'$GITHUB_TOKEN'github.com/g14wx/-crud-users-laravel.git"
-    - "git checkout main"
-    - "git push github main"
+    - "git push github"
   only:
     - main
-    - CU-04-add-user-crud
 
 
 
